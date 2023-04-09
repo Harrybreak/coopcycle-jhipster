@@ -1,0 +1,52 @@
+{
+  "applications": ["CoopCyle"],
+  "changelogDate": "20230409212717",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "panier",
+  "fields": [
+    {
+      "fieldName": "etat",
+      "fieldType": "EtatLivraison",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "REDACTION,PAYEE,PREPARATION,PRETE,ROUTE,ECHEC,LIVREE,SIGNALEE"
+    },
+    {
+      "fieldName": "paiement",
+      "fieldType": "Paiement",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "CB,MASTERCARD,VISA,PAYPAL,APPLE,GOOGLE,CHEQUE,BITCOIN,IZLY"
+    },
+    {
+      "fieldName": "dateCommande",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Panier",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "livraison",
+      "otherEntityRelationshipName": "panier",
+      "ownerSide": false,
+      "relationshipName": "livraison",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "clientele",
+      "otherEntityRelationshipName": "panier",
+      "relationshipName": "clientele",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "panier",
+      "relationshipName": "commerce",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

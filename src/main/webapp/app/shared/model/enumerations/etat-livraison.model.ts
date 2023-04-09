@@ -1,0 +1,17 @@
+export enum EtatLivraison {
+  REDACTION = 'REDACTION',
+
+  PAYEE = 'PAYEE',
+
+  PREPARATION = 'PREPARATION',
+
+  PRETE = 'PRETE',
+
+  ROUTE = 'ROUTE',
+
+  ECHEC = 'ECHEC',
+
+  LIVREE = 'LIVREE',
+
+  SIGNALEE = 'SIGNALEE',
+}

@@ -1,0 +1,35 @@
+{
+  "applications": ["CoopCyle"],
+  "changelogDate": "20230409212217",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "clientele",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Clientele",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "clientele",
+      "relationshipName": "panier",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "clientele",
+      "ownerSide": true,
+      "relationshipName": "commerce",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "cooperative",
+      "otherEntityRelationshipName": "clientele",
+      "relationshipName": "cooperative",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

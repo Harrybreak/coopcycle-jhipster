@@ -1,0 +1,26 @@
+{
+  "coopCyleApp": {
+    "clientele": {
+      "home": {
+        "title": "Clienteles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Clientele",
+        "createOrEditLabel": "Create or edit a Clientele",
+        "notFound": "No Clienteles found"
+      },
+      "created": "A new Clientele is created with identifier {{ param }}",
+      "updated": "A Clientele is updated with identifier {{ param }}",
+      "deleted": "A Clientele is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Clientele {{ id }}?"
+      },
+      "detail": {
+        "title": "Clientele"
+      },
+      "id": "ID",
+      "panier": "Panier",
+      "commerce": "Commerce",
+      "cooperative": "Cooperative"
+    }
+  }
+}

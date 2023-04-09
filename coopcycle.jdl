@@ -1,0 +1,139 @@
+/* Idéalement, les commentaires et les noms de variables
+ * doivent être écrits en anglais pour l'internationalisation
+ * mais dans notre cas, le français sera utilisé afin de
+ * permettre une meilleure compréhension (je doute de mon
+ * niveau en anglais, pas du vôtre, chère correctrice ou cher
+ * correcteur).
+ */
+ 
+application {
+  config {
+    baseName CoopCyle,
+    applicationType monolith,
+    packageName polytech.info4.gl,
+    authenticationType oauth2,
+    prodDatabaseType postgresql,
+    buildTool gradle,
+    enableSwaggerCodegen true
+  }
+  entities *
+}
+
+enum Paiement {
+	// Énumération exhaustive imposée par l'énoncé
+	CB
+    MASTERCARD
+    VISA
+    PAYPAL
+    APPLE
+    GOOGLE
+    CHEQUE
+    BITCOIN
+    IZLY
+}
+
+enum EtatLivraison {
+	// Énumération exhaustive
+	REDACTION // En cours de rédaction par le ou la cliente
+    PAYEE // Payée, en attente d'être préparée
+    PREPARATION // En cours de préparation par le commerce ciblé
+    PRETE // Prête, en attente de trouver un ou une livreuse
+    /* Dans cet état, une notification push est envoyée
+     * aux livreuses et livreurs disponibles.
+     */
+    ROUTE // En cours de livraison
+    ECHEC // En cas d'échec de livraison (accident, etc.)
+    							/* Dans ce cas, il est
+     * proposé au ou à la cliente de recommencer un
+     * nouveau panier qui sera entièrement pris en charge
+     * par le commerce en question (paiement).
+     */
+    LIVREE // Livrée
+    SIGNALEE // En cas d'erreur remarquée une fois livrée
+    /* Cet état est atteint lorsque le ou la cliente
+     * a signalé toute erreur concernant la commande,
+     * le panier ou la livraison. Dans ce cas, il est
+     * proposé au ou à la cliente de recommencer un
+     * nouveau panier qui sera entièrement pris en charge
+     * par le commerce en question (paiement).
+     */
+}
+
+enum TypeMaintenance {
+	// Enumération non-exhaustive
+	COOPERATIVE
+    SOCIETE
+    INGENIERIE
+    ADMINISTRATION
+    DIRECTION
+    TECHNIQUE
+    RESEAU
+    RELATIONS
+}
+
+enum Theme {
+	// Enumération non-exhaustive
+	RESTAURANT
+    RESTAURANT_VIETNAM
+    RESTAURANT_KOWEIT
+    RESTAURANT_IRAN
+    RESTAURANT_OUZBEK
+    POTERIE
+    VERRERIE
+    DIVERS
+    /* On peut créer une énumération à part entière
+     * pour les origines de cuisine ou d'artisanat 
+     * mais dans notre cas, cette structure suffira.
+    */
+}
+
+entity Clientele {
+
+}
+
+entity Cooperative {
+	nom String required
+    canton String required
+}
+
+entity Commerce {
+	nom String required
+    theme Theme
+    site String unique
+}
+
+entity Livraison {
+	identite String required unique
+	vehicule String
+    disponible Boolean required
+}
+
+entity Maintenance {
+	categorie TypeMaintenance
+}
+
+entity Panier {
+	etat EtatLivraison required
+    paiement Paiement required
+    dateCommande Instant
+}
+
+relationship ManyToMany {
+	Clientele to Commerce
+}
+
+relationship OneToOne {
+    Livraison to Panier
+}
+
+relationship ManyToOne {
+	Commerce to Cooperative
+}
+
+relationship OneToMany {
+    Cooperative to Clientele
+    Cooperative to Livraison
+    Cooperative to Commerce
+    Clientele to Panier
+    Commerce to Panier
+}

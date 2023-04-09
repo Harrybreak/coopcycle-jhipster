@@ -1,0 +1,44 @@
+{
+  "applications": ["CoopCyle"],
+  "changelogDate": "20230409212517",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "livraison",
+  "fields": [
+    {
+      "fieldName": "identite",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "vehicule",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "disponible",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Livraison",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "livraison",
+      "ownerSide": true,
+      "relationshipName": "panier",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "cooperative",
+      "otherEntityRelationshipName": "livraison",
+      "relationshipName": "cooperative",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

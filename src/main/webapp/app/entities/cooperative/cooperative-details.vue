@@ -1,0 +1,40 @@
+<template>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div v-if="cooperative">
+        <h2 class="jh-entity-heading" data-cy="cooperativeDetailsHeading">
+          <span v-text="$t('coopCyleApp.cooperative.detail.title')">Cooperative</span> {{ cooperative.id }}
+        </h2>
+        <dl class="row jh-entity-details">
+          <dt>
+            <span v-text="$t('coopCyleApp.cooperative.nom')">Nom</span>
+          </dt>
+          <dd>
+            <span>{{ cooperative.nom }}</span>
+          </dd>
+          <dt>
+            <span v-text="$t('coopCyleApp.cooperative.canton')">Canton</span>
+          </dt>
+          <dd>
+            <span>{{ cooperative.canton }}</span>
+          </dd>
+        </dl>
+        <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>
+        </button>
+        <router-link
+          v-if="cooperative.id"
+          :to="{ name: 'CooperativeEdit', params: { cooperativeId: cooperative.id } }"
+          custom
+          v-slot="{ navigate }"
+        >
+          <button @click="navigate" class="btn btn-primary">
+            <font-awesome-icon icon="pencil-alt"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.edit')"> Edit</span>
+          </button>
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" src="./cooperative-details.component.ts"></script>

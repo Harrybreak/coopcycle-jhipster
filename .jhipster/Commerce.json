@@ -1,0 +1,57 @@
+{
+  "applications": ["CoopCyle"],
+  "changelogDate": "20230409212417",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "commerce",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "theme",
+      "fieldType": "Theme",
+      "fieldValues": "RESTAURANT,RESTAURANT_VIETNAM,RESTAURANT_KOWEIT,RESTAURANT_IRAN,RESTAURANT_OUZBEK,POTERIE,VERRERIE,DIVERS"
+    },
+    {
+      "fieldName": "site",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Commerce",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "panier",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "cooperative",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "cooperative",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "cooperative",
+      "otherEntityRelationshipName": "commerce",
+      "relationshipName": "cooperative",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "clientele",
+      "otherEntityRelationshipName": "commerce",
+      "ownerSide": false,
+      "relationshipName": "clientele",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Clientele.
+    -->
+    <changeSet id="20230409212217-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="clientele_id"
+                                 baseTableName="rel_clientele__commerce"
+                                 constraintName="fk_rel_clientele__commerce__clientele_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clientele"/>
+
+        <addForeignKeyConstraint baseColumnNames="commerce_id"
+                                 baseTableName="rel_clientele__commerce"
+                                 constraintName="fk_rel_clientele__commerce__commerce_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="commerce"/>
+
+        <addForeignKeyConstraint baseColumnNames="cooperative_id"
+                                 baseTableName="clientele"
+                                 constraintName="fk_clientele__cooperative_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cooperative"/>
+    </changeSet>
+</databaseChangeLog>

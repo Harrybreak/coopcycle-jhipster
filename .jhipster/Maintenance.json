@@ -1,0 +1,21 @@
+{
+  "applications": ["CoopCyle"],
+  "changelogDate": "20230409212617",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "maintenance",
+  "fields": [
+    {
+      "fieldName": "categorie",
+      "fieldType": "TypeMaintenance",
+      "fieldValues": "COOPERATIVE,SOCIETE,INGENIERIE,ADMINISTRATION,DIRECTION,TECHNIQUE,RESEAU,RELATIONS"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Maintenance",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}
